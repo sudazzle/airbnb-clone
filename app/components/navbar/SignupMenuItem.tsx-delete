@@ -1,0 +1,25 @@
+import { useCallback, useState } from 'react'
+import { MenuItem } from './UserMenu'
+import { Modal } from '../modal/Modal'
+import { ModalHeader } from '../modal/ModalHeader'
+
+export const SignupMenuItem = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  
+  const onClose = useCallback(() => {
+    setIsModalOpen(false)
+  }, [])
+  
+  return (
+    <>
+       <MenuItem
+          onClick={() => setIsModalOpen(true)}
+          label="Sign up"
+          className="font-semibold"
+        />
+        <Modal onClose={onClose} isOpen={isModalOpen}>
+          <ModalHeader>Test </ModalHeader>
+        </Modal>
+    </>
+  )
+}
